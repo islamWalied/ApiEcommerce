@@ -18,4 +18,6 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-\App\Helpers\Routes\RouteHelper::includeRouteFiles(__DIR__ . '/api/v1');
+\App\Helpers\Routes\RouteHelper::includeRouteFiles(__DIR__ . '/api/admin/v1');
+\App\Helpers\Routes\RouteHelper::includeRouteFiles(__DIR__ . '/api/auth/v1');
+//\App\Helpers\Routes\RouteHelper::includeRouteFiles(__DIR__ . '/api/frontend/v1');

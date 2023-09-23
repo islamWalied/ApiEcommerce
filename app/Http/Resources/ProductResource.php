@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -14,6 +15,7 @@ class ProductResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+
         return [
             'title' => $this->title,
             'description' => $this->description,
@@ -21,6 +23,7 @@ class ProductResource extends JsonResource
             'discount_price' => $this->discount_price,
             'quantity' => $this->quantity,
             'category_id' => $this->category_id,
+//            'images' => ImageResource::collection($this->image_url),
         ];
     }
 }

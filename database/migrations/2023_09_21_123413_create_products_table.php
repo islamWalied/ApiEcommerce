@@ -22,7 +22,11 @@ return new class extends Migration
 //            $table->string('size');
 //            $table->string('image');
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
             $table->timestamps();
         });
     }
