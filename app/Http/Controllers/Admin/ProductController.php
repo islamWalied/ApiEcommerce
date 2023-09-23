@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\Http\Resources\CategoryResource;
-use App\Http\Resources\ImageResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Image;
 use App\Models\Product;
@@ -23,14 +21,20 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
-        return ProductResource::collection($product);
-//        $joined = DB::table('products')
-//            ->join('images', 'images.product_id', '=', 'products.id')
-//            ->select('products.*','images.image_url')
+//        $product = Product::all();
+//        return ProductResource::collection($product);
+//        $joined = DB::table('product_color')
+//            ->join('colors', 'colors.id', '=', 'product_color.color_id')
+//            ->join('products', 'products.id', '=', 'product_color.product_id')
+//            ->select('products.*','colors.color')
 //            ->get();
 //        return $joined;
-
+        $products = Product::with(['sizes' => function ($query) {
+            $query->select('sizes.size');
+        }, 'colors' => function ($query) {
+            $query->select('colors.color');
+        }, 'images'])->get();
+        return $products;
     }
 
     /**
@@ -47,6 +51,12 @@ class ProductController extends Controller
             'quantity' => $request->quantity,
             'category_id' => $request->category_id,
         ]);
+        if($request->has("color")){
+            $product->colors()->attach($request->color);
+        }
+        if($request->has("size")){
+            $product->sizes()->attach($request->size);
+        }
 
         if ($request->has('image_url'))
         {
@@ -81,13 +91,22 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $joined = DB::table('products')
-            ->join('images', 'images.product_id', '=', 'products.id')
-            ->select('products.*','images.image_url','images.product_id','images.is_primary')
-            ->where('images.product_id' , '=', $product->id)
-            ->get();
-        return $joined;
+//        $joined = DB::table('products')
+//            ->join('images', 'images.product_id', '=', 'products.id')
+//            ->select('products.*','images.image_url','images.product_id','images.is_primary')
+//            ->where('images.product_id' , '=', $product->id)
+//            ->get();
+//        return $joined;
+        $product = Product::with(['colors' => function ($query) {
+            $query->select('color');
+        }, 'sizes' => function ($query) {
+            $query->select( 'size');
+        }, 'images' => function ($query) {
+            $query->select( 'image_url','is_primary','product_id');
+        }])->find($product);
+        return $product;
     }
+
 
     /**
      * Update the specified resource in storage.

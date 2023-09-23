@@ -20,6 +20,8 @@ class ProductSeeder extends Seeder
             'discount_price' => 5,
             'quantity' => 10,
             'category_id' => 3,
+//            'size' => 3,
+//            'color' => 5,
         ]);
         Product::create([
             'title' => 'keyboard',
@@ -28,6 +30,8 @@ class ProductSeeder extends Seeder
             'discount_price' => 25,
             'quantity' => 5,
             'category_id' => 2,
+//            'size' => 4,
+//            'color' => 6,
         ]);
         Product::create([
             'title' => 't-shirt',
@@ -36,6 +40,8 @@ class ProductSeeder extends Seeder
             'discount_price' => 120,
             'quantity' => 20,
             'category_id' => 1,
+//            'size' => 2,
+//            'color' => 8,
         ]);
         Product::create([
             'title' => 'bike',
@@ -44,6 +50,8 @@ class ProductSeeder extends Seeder
             'discount_price' => 22,
             'quantity' => 6,
             'category_id' => 4,
+//            'size' => 1,
+//            'color' => 7,
         ]);
     }
 }

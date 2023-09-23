@@ -11,3 +11,4 @@ Route::middleware(['auth:sanctum','admin'])
 {
     Route::apiResource('/category',CategoryController::class);
 });
+

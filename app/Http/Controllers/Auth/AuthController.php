@@ -36,6 +36,7 @@ class AuthController extends Controller
             [
                 'Accept' => 'application/json',
                 'content-type' => 'application/json',
+                "ngrok-skip-browser-warning" => "69420",
             ]);
     }
 
@@ -70,6 +71,7 @@ class AuthController extends Controller
             [
                 'Accept' => 'application/json',
                 'content-type' => 'application/json',
+                "ngrok-skip-browser-warning" => "69420",
             ]);
     }
     public function logout()
