@@ -1,7 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Helpers\Routes\v1\RouteHelper;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +17,4 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-\App\Helpers\Routes\RouteHelper::includeRouteFiles(__DIR__ . '/api/admin/v1');
-\App\Helpers\Routes\RouteHelper::includeRouteFiles(__DIR__ . '/api/auth/v1');
-//\App\Helpers\Routes\RouteHelper::includeRouteFiles(__DIR__ . '/api/frontend/v1');
+RouteHelper::includeRouteFiles(__DIR__ . '/api/');

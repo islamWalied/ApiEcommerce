@@ -29,4 +29,11 @@ class Product extends Model
     {
         return $this->belongsToMany(Size::class,'product_size');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+
 }

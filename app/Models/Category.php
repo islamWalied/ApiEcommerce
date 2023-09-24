@@ -14,4 +14,8 @@ class Category extends Model
         'image',
         'parent_id',
     ];
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

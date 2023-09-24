@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Helpers\Routes;
+namespace App\Helpers\Routes\v1;
 
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-
 class RouteHelper
 {
     public static function includeRouteFiles(string $folder)
@@ -25,7 +24,6 @@ class RouteHelper
             {
                 //choose one of these method
                 require $it->key();
-
 //                require $it->current()->getPathname();
             }
             $it->next();

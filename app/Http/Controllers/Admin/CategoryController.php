@@ -78,7 +78,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        Storage::delete($category->image);
+        if($category->image != null){
+            Storage::delete($category->image);
+        }
         $deleted = $category->forceDelete();
         if (!$deleted){
             return new JsonResponse([
