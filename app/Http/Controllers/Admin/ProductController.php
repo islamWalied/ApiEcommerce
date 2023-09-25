@@ -9,8 +9,6 @@ use App\Http\Resources\ProductResource;
 use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -154,6 +152,8 @@ class ProductController extends Controller
             $image->delete();
         }
 
+        $product->sizes()->detach();
+        $product->colors()->detach();
         // Delete the product itself
         $deleted = $product->forceDelete();
 
