@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Notifications\VerifyEmailNotification;
 
 
 class AuthController extends Controller
@@ -24,6 +25,9 @@ class AuthController extends Controller
             'password' => bcrypt($fields['password'])
         ]);
 
+        // Send verification email
+        $user->notify(new VerifyEmailNotification());
+
         $token = $user->createToken('myapptoken')->plainTextToken;
 
         $response = [
@@ -36,7 +40,6 @@ class AuthController extends Controller
             [
                 'Accept' => 'application/json',
                 'content-type' => 'application/json',
-                "ngrok-skip-browser-warning" => "69420",
             ]);
     }
 
