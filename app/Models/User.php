@@ -52,5 +52,12 @@ class User extends Authenticatable implements CanResetPassword , MustVerifyEmail
     {
         return $this->hasMany(Cart::class);
     }
-
+    public function favourite()
+    {
+        return $this->belongsToMany(Favourite::class,'user_favourite');
+    }
+    public function products()
+    {
+        return $this->belongsToMany(Product::class,'user_product');
+    }
 }

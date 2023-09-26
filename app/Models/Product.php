@@ -39,5 +39,13 @@ class Product extends Model
     {
         return $this->belongsToMany(Cart::class,'product_cart');
     }
+    public function favourite()
+    {
+        return $this->belongsToMany(Favourite::class,'product_favourite');
+    }
+    public function users()
+    {
+        return $this->belongsToMany(User::class,'user_product');
+    }
 
 }
