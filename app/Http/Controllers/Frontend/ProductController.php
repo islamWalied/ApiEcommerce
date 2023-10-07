@@ -16,8 +16,11 @@ class ProductController extends Controller
             $query->select('sizes.size');
         }, 'colors' => function ($query) {
             $query->select('colors.color');
+        }, 'reviews' => function ($query) {
+            $query->select('reviews.rating');
         }, 'images'])->get();
-        return $products;
+
+        return ProductResource::collection($products);
     }
     public function show(Product $product)
     {

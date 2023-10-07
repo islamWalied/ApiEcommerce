@@ -47,5 +47,8 @@ class Product extends Model
     {
         return $this->belongsToMany(User::class,'user_product');
     }
-
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

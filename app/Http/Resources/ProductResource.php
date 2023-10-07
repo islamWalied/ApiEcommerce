@@ -19,14 +19,17 @@ class ProductResource extends JsonResource
     {
 
         return [
+            'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
             'price' => $this->price,
             'discount_price' => $this->discount_price,
             'quantity' => $this->quantity,
             'category_id' => $this->category_id,
-//            'color' => $this->colors->color,
-//            'images' => ImageResource::collection($this->image_url),
+            'sizes' => $this->sizes->pluck('size'),
+            'colors' => $this->colors->pluck('color'),
+            'images' => $this->images->pluck('image_url'),
+            'reviews' => ReviewResource::collection($this->reviews),
         ];
     }
 }

@@ -60,4 +60,8 @@ class User extends Authenticatable implements CanResetPassword , MustVerifyEmail
     {
         return $this->belongsToMany(Product::class,'user_product');
     }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

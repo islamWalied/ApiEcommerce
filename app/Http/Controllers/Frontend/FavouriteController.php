@@ -17,7 +17,7 @@ class FavouriteController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($user)
+    public function index()
     {
 //        $favourite = Favourite::with(['users'=> function ($query) {
 //            $query->select('users.name');
@@ -36,9 +36,9 @@ class FavouriteController extends Controller
 //            'whitelistProducts' => $whitelistProducts,
 //        ]);
 
-
-        $user = User::find($user);
-        $whitelists = $user->favourite;
+        $user = Auth::user()->id;
+        $customer = User::find($user);
+        $whitelists = $customer->favourite;
         return $whitelists;
     }
 

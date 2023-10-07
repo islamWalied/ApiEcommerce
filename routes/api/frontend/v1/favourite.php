@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum'])
     ->group(function () {
-        Route::get('/favourite/user/{user}',[FavouriteController::class,'index']);
+        Route::get('/favourite/user',[FavouriteController::class,'index']);
 //        Route::get('/favourite/{favourite}',[FavouriteController::class,'show']);
         Route::post('/favourite',[FavouriteController::class,'store']);
         Route::delete('/favourite/{favourite}',[FavouriteController::class,'destroy']);

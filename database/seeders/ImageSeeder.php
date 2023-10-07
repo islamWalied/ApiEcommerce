@@ -14,7 +14,7 @@ class ImageSeeder extends Seeder
     public function run(): void
     {
         Image::create([
-            'image_url' => 'image_url.jpg',
+            'image_url' => '/storage/products/product-2.jpg',
             'product_id' => 1,
 //            'caption' => 'hello body',
 //            'alt_text' => 'this is alt text',
@@ -23,7 +23,7 @@ class ImageSeeder extends Seeder
 //            'file_type' => 'png;',
         ]);
         Image::create([
-            'image_url' => 'image_url.jpg',
+            'image_url' => '/storage/products/product-3.jpg',
             'product_id' => 1,
 //            'caption' => 'hello body',
 //            'alt_text' => 'this is alt text',
@@ -32,7 +32,7 @@ class ImageSeeder extends Seeder
 //            'file_type' => 'png;',
         ]);
         Image::create([
-            'image_url' => 'image1_url.jpg',
+            'image_url' => '/storage/products/product-4.jpg',
             'product_id' => 2,
 //            'caption' => 'hello body',
 //            'alt_text' => 'this is alt text',
@@ -41,7 +41,7 @@ class ImageSeeder extends Seeder
 //            'file_type' => 'png;',
         ]);
         Image::create([
-            'image_url' => 'image2_url.jpg',
+            'image_url' => '/storage/products/product-5.jpg',
             'product_id' => 2,
 //            'caption' => 'hello body',
 //            'alt_text' => 'this is alt text',
@@ -50,7 +50,7 @@ class ImageSeeder extends Seeder
 //            'file_type' => 'png;',
         ]);
         Image::create([
-            'image_url' => 'image3_url.jpg',
+            'image_url' => '/storage/products/product-6.jpg',
             'product_id' => 3,
 //            'caption' => 'hello body',
 //            'alt_text' => 'this is alt text',
@@ -59,7 +59,7 @@ class ImageSeeder extends Seeder
 //            'file_type' => 'png;',
         ]);
         Image::create([
-            'image_url' => 'image4_url.jpg',
+            'image_url' => '/storage/products/product-7.jpg',
             'product_id' => 3,
 //            'caption' => 'hello body',
 //            'alt_text' => 'this is alt text',
@@ -68,8 +68,8 @@ class ImageSeeder extends Seeder
 //            'file_type' => 'png;',
         ]);
         Image::create([
-            'image_url' => 'image5_url.jpg',
-            'product_id' => 3,
+            'image_url' => '/storage/products/product-1.jpg',
+            'product_id' => 4,
 //            'caption' => 'hello body',
 //            'alt_text' => 'this is alt text',
             'is_primary' => 1,
