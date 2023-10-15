@@ -29,7 +29,7 @@ class CartController extends Controller
         $user = Auth::user()->id;
         $created = Cart::create([
             'user_id' => $user,
-            'quantity' =>$request->quantity,
+            'quantity' => "0",
         ]);
         $productIds = $request->product_ids;
         $created->products()->sync($productIds);

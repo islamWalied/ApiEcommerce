@@ -31,6 +31,8 @@ class ProductController extends Controller
             $query->select('sizes.size');
         }, 'colors' => function ($query) {
             $query->select('colors.color');
+        }, 'reviews' => function ($query) {
+            $query->select('reviews.*');
         }, 'images'])->get();
         return $products;
     }
@@ -56,7 +58,7 @@ class ProductController extends Controller
             $product->sizes()->attach($request->size);
         }
 
-        if ($request->has('image_url'))
+        if ($request->hasFile('image_url'))
         {
             $image = $request->file('image_url');
 
